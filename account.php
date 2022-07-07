@@ -14,11 +14,11 @@ if(isset($_POST['create'])){
 
     $error = array();
 
-    if(empty($fnama)){
+    if(empty($fname)){
         $error['ac'] = 'Enter Fisrtname';
-    }else if(empty($snama)){
+    }else if(empty($sname)){
         $error['ac'] = 'Enter Surname';
-    }else if(empty($unama)){
+    }else if(empty($uname)){
         $error['ac'] = 'Enter Username';
     }else if(empty($email)){
         $error['ac'] = 'Enter Email Address';
@@ -35,12 +35,12 @@ if(isset($_POST['create'])){
     }
 
     if(count($error) == 0){
-        $query = "INSERT INTO patient(fname, sname, uname, email, gender, phone, country, pass, salary, data_reg, status, profil) VALUE('$fname','$sname','$uname','$email','$gender','$phone','$country','$pass','0', NOW(),'Pendding','patient.jpg')";
+        $query = "INSERT INTO patient(fname, sname, uname, email, phone, gender, country, pass, date_req, profil) VALUE('$fname','$sname','$uname','$email','$phone','$gender','$country','$pass', NOW(),'patient.jpg')";
 
         $result = mysqli_query($conn, $query);
 
         if($result){
-            header("Location: patientogin.php");
+            header("Location: patientlogin.php");
         }else{
             echo "<script>alert('Failed')</script>";
         }
@@ -55,7 +55,7 @@ if(isset($_POST['create'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
 </head>
-<body style="background-image: url(img/);background-repeat: no repeat; backgorund-size: cover;">
+<body style="background-image: url(img/);background-repeat: no repeat; background-size: cover;">
     <?php
         include 'header.php';
     ?>
@@ -63,10 +63,10 @@ if(isset($_POST['create'])){
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="row">
-                <div class="com-md-3">
+                <div class="col-md-3">
 
                 </div>
-                <div class="com-md-6 my-2 jumbotron">
+                <div class="col-md-6 my-2 jumbotron">
                     <h5 class="text-center text-info my-2">Create Account</h5>
 
                     <form action="" method="post">
@@ -84,7 +84,7 @@ if(isset($_POST['create'])){
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="text" name="Email" class="form-control" autocomplete="off" placeholder="Enter Email">
+                            <input type="text" name="email" class="form-control" autocomplete="off" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
                             <label for="">Phone No.</label>
@@ -99,7 +99,7 @@ if(isset($_POST['create'])){
                         </div>
                         <div class="form-group">
                             <label for="">Country</label>
-                            <select name="Country" id="">Select Your Country
+                            <select name="country" id="">Select Your Country
                                 <option value="USA">USA</option>
                                 <option value="Russia">Russia</option>
                             </select>
@@ -113,7 +113,7 @@ if(isset($_POST['create'])){
                             <input type="text" name="con_pass" class="form-control" autocomplete="off" placeholder="Enter Confirm Password">
                         </div>
                         <input type="submit" name="create" value="Create Account" class="btn btn-info">
-                        <p>I dont have an account <a href="patientlogin.php">Click Here</a></p>   
+                        <p>I already have an account <a href="patientlogin.php">Click Here</a></p>   
                     </form>
                 </div>
             </div>

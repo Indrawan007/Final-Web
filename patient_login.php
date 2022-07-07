@@ -12,8 +12,8 @@ if(isset($_POST['login'])){
     }else if(empty($pass)){
         echo "<script>alert('Enter Password')</script>";
     }else{
-        $q = "SELECT * FROM doctor WHERE uname='$uname' AND pass='$pass'";
-        $res = mysqli_query($conn, $q);
+        $query = "SELECT * FROM patient WHERE uname='$uname' AND pass='$pass'";
+        $res = mysqli_query($conn, $query);
 
         if(mysqli_num_rows($res)==1){
             header('Location:patient/index.php');

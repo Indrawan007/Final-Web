@@ -32,7 +32,7 @@ error_reporting(0);
                                 <div class="col-md-6">
                                     <?php
                                         $doc = $_SESSION['doctor'];
-                                        $query = "SELECT * FROM doctor WHERE nama=''";
+                                        $query = "SELECT * FROM doctor WHERE nama='$doc'";
 
                                         $res = mysqli_query($conn, $query);
 
@@ -104,7 +104,7 @@ error_reporting(0);
                                     <h5 class="text-center my2">Change Username</h5>
                                     <?php
                                         if(isset($_POST['change_uname'])){
-                                            $uname = $_POST['uname'];
+                                            $uname = $_POST['nama'];
 
                                             if(empty($uname)){
                                                 
@@ -121,7 +121,7 @@ error_reporting(0);
                                     ?>
                                     <form method="post">
                                         <label for="">Change Username</label>
-                                        <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                                        <input type="text" name="nama" class="form-control" autocomplete="off" placeholder="Enter Username">
                                         <br>
                                         <input type="submit" name="change_uname" class="btn btn-success" value="Change Username">
                                     </form>
@@ -145,7 +145,7 @@ error_reporting(0);
                                             }else if($con != $new){
 
                                             }else{
-                                                $query = "UPDATE doctor SET pass='$new' WHERE username='$doc'";
+                                                $query = "UPDATE doctor SET pass='$new' WHERE nama='$doc'";
 
                                                 mysqli_query($conn, $query);
                                             }
