@@ -23,7 +23,7 @@ require 'header.php';
                     
                     <h5 class="text-center">Click on the button for more information</h5>
 
-                    <a href="">
+                    <a href="account.php">
                         <button class="btn btn-success my-3" style="margin-left: 20%;">More Information</button>
                     </a>
                 </div>

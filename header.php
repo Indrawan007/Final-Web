@@ -33,12 +33,17 @@
                         echo '
                         <li class="nav-item"><a href="" class="nav-link text-white">'.$user.'</a></li>
                         <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>';
+                }else if(isset($_SESSION['patient'])){
+                    $user = $_SESSION['patient'];
+                        echo '
+                        <li class="nav-item"><a href="" class="nav-link text-white">'.$user.'</a></li>
+                        <li class="nav-item"><a href="logout.php" class="nav-link text-white">Logout</a></li>';
                 }else{
                     echo '
                     <li class="nav-item"><a href="index.php" class="nav-link text-white">Home</a></li>
                     <li class="nav-item"><a href="admin_login.php" class="nav-link text-white">Admin</a></li>
                     <li class="nav-item"><a href="doctor_login.php" class="nav-link text-white">Doctor</a></li>
-                    <li class="nav-item"><a href="" class="nav-link text-white">Patient</a></li>';
+                    <li class="nav-item"><a href="patientlogin.php" class="nav-link text-white">Patient</a></li>';
                 }
             
             ?>
